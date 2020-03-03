@@ -72,7 +72,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public bool isGreaterThanZero()
+    public bool IsGreaterThanZero()
     {
         return currentHealth > 0;
     }

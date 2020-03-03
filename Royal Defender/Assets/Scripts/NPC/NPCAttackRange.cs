@@ -28,7 +28,7 @@ public class NPCAttackRange : MonoBehaviour
                 if (enemy)
                 {
                     EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-                    if (enemyHealth.isAlive())
+                    if (enemyHealth.IsAlive())
                     {
                         Vector3 distanceToEnemy = enemy.transform.position - transform.position;
                         if (distanceToClosestEnemy == Vector3.zero)

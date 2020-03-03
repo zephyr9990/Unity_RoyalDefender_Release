@@ -91,7 +91,7 @@ public class EnemyController : MonoBehaviour, IAIController
     void GoToTarget() 
     { 
         //checks to see if target is within range
-        if (Vector3.Distance(this.transform.position, target.transform.position) > SD && this.GetComponent<EnemyHealth>().isAlive())
+        if (Vector3.Distance(this.transform.position, target.transform.position) > SD && this.GetComponent<EnemyHealth>().IsAlive())
         {
             _nav.isStopped = false;
             _nav.SetDestination(target.transform.position);
@@ -113,7 +113,7 @@ public class EnemyController : MonoBehaviour, IAIController
     public void AttackTarget()
     {
         // Removed the atteackInterval <= 0 from the if statement
-        if (target.CompareTag("Player") && this.GetComponent<EnemyHealth>().isAlive()&& attackInterval <= 0)
+        if (target.CompareTag("Player") && this.GetComponent<EnemyHealth>().IsAlive()&& attackInterval <= 0)
         {
             _anim.SetTrigger("Attack Trigger");
             _anim.SetBool("Basic Attack", true);

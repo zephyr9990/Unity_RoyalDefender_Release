@@ -84,7 +84,7 @@ public class LockOnScript : MonoBehaviour
             {
                 SetHealthBarEnabled(enemy, false);
                 EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-                if (enemyHealth.isAlive())
+                if (enemyHealth.IsAlive())
                 {
                     Vector3 ToEnemy = enemy.transform.position - transform.parent.position;
                     if (!closestEnemy)
@@ -117,7 +117,7 @@ public class LockOnScript : MonoBehaviour
         if (target)
         {
             EnemyHealth targetHealth = target.GetComponent<EnemyHealth>();
-            if (targetHealth.isAlive())
+            if (targetHealth.IsAlive())
             {
                 Vector3 toTarget = target.transform.position - transform.parent.position;
                 toTarget.y = 0;

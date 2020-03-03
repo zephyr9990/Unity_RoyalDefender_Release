@@ -8,8 +8,6 @@ public class EnemyHealth : MonoBehaviour
 {
     public int MaxHealth;
     public int pointsValue = 10;
-    private GameObject player;
-    private LockOnScript playerLockOnScript;
     private EnemiesSlainManager enemiesSlainScript;
     private PointsManager pointsManagerScript;
     private Animator _anim;
@@ -32,16 +30,8 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = MaxHealth;
         _anim = GetComponent<Animator>();
         _nav = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerLockOnScript = player.transform.GetChild(0).GetComponent<LockOnScript>();
         enemiesSlainScript = GameObject.FindGameObjectWithTag("SlainText").GetComponent<EnemiesSlainManager>();
         pointsManagerScript = GameObject.FindGameObjectWithTag("PointText").GetComponent<PointsManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public event Action<float> OnHealthPctChanged = delegate { };
@@ -86,7 +76,7 @@ public class EnemyHealth : MonoBehaviour
         isDamaged = false;
     }
 
-    public bool isAlive()
+    public bool IsAlive()
     {
         return bIsAlive;
     }
@@ -108,7 +98,7 @@ public class EnemyHealth : MonoBehaviour
         }
         else // flying enemy
         {
-            GetComponent<FlyingEnemyController>().DropWeapon();
+           // GetComponent<FlyingEnemyController>().DropWeapon();
         }
         Destroy(gameObject, 2.5f);
         

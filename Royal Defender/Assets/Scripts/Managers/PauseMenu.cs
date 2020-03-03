@@ -17,7 +17,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("Pause")
-            && playerHealth.isGreaterThanZero())
+            && playerHealth.IsGreaterThanZero())
         {
             Paused();
         }

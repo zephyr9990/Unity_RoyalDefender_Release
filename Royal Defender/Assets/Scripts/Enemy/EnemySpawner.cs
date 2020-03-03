@@ -11,10 +11,10 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
+        InvokeRepeating("SpawnEnemy", spawnTime, spawnTime);
     }
 
-    void Spawn()
+    private void SpawnEnemy()
     {
         int spawnIndex = Random.Range(0, spawnPoints.Length - 1);
 

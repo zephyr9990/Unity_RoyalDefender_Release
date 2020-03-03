@@ -64,7 +64,7 @@ public class SpecialWeapon : MonoBehaviour, IRangedWeapon
         for (int i = 0; i < enemies.Count; i++)
         {
             GameObject enemy = (GameObject)enemies[i];
-            if (enemy && enemy.GetComponent<EnemyHealth>().isAlive())
+            if (enemy && enemy.GetComponent<EnemyHealth>().IsAlive())
             {
                 enemy.GetComponent<IAIController>().StopMovement();
             }
@@ -85,7 +85,7 @@ public class SpecialWeapon : MonoBehaviour, IRangedWeapon
         {
             enemyCutsceneLocation.transform.rotation *= Quaternion.Euler(0f, enemySpacing, 0f);
             GameObject enemy = (GameObject)enemies[i];
-            if (enemy && enemy.GetComponent<EnemyHealth>().isAlive())
+            if (enemy && enemy.GetComponent<EnemyHealth>().IsAlive())
             {
                 enemy.transform.position = enemyCutsceneLocation.transform.position;
                 enemy.transform.position += enemyCutsceneLocation.transform.forward * radiusSpawnDistance;
@@ -97,7 +97,7 @@ public class SpecialWeapon : MonoBehaviour, IRangedWeapon
     {
         foreach (GameObject enemy in enemies)
         {
-            if (enemy && enemy.GetComponent<EnemyHealth>().isAlive())
+            if (enemy && enemy.GetComponent<EnemyHealth>().IsAlive())
             {
                 originalEnemyTransforms.Add(new TransformInfo(enemy.transform));
             }
