@@ -20,7 +20,7 @@ public class NPCAiming : MonoBehaviour
     void Update()
     {
         bool isLockedOn = animator.GetBool("LockOnToggled");
-        GameObject target = npcMovement.getTarget();
+        GameObject target = npcMovement.GetTarget();
         if (isLockedOn)
         {
             AimTowards(target);
@@ -57,7 +57,7 @@ public class NPCAiming : MonoBehaviour
 
     private static Vector3 GetRootLocation(GameObject target)
     {
-        if (target.GetComponent<EnemyController>() != null)
+        if (target.GetComponent<EnemyAIController>() != null)
         { return new Vector3(0, groundedEnemyRootLocation, 0); }
         else
         { return new Vector3(0, flyingEnemyRootLocation, 0); }

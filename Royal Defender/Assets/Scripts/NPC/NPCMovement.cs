@@ -86,18 +86,18 @@ public class NPCMovement : MonoBehaviour
 
         if (distanceToTarget.magnitude <= acceptableDistance)
         {
-            setNavStopped(true);
+            SetNavStopped(true);
         }
     }
 
     private void GoToLocation(GameObject targetPoint)
     {
-        setNavStopped(false);
+        SetNavStopped(false);
         navMeshAgent.SetDestination(targetPoint.transform.position);
     }
     private void GoToLocation(Vector3 targetPosition)
     {
-        setNavStopped(false);
+        SetNavStopped(false);
         navMeshAgent.SetDestination(targetPosition);
     }
 
@@ -126,7 +126,7 @@ public class NPCMovement : MonoBehaviour
         else
         {
             npcCombat.SetInMeleeRange(true);
-            setNavStopped(true);
+            SetNavStopped(true);
         }
     }
 
@@ -150,11 +150,11 @@ public class NPCMovement : MonoBehaviour
         else
         {
             npcCombat.SetInShootingRange(true);
-            setNavStopped(true);
+            SetNavStopped(true);
         }
     }
 
-    private void setNavStopped(bool value)
+    private void SetNavStopped(bool value)
     {
         navMeshAgent.isStopped = value;
     }
@@ -184,7 +184,7 @@ public class NPCMovement : MonoBehaviour
         animator.SetBool("LockOnToggled", value);
     }
 
-    public GameObject getTarget()
+    public GameObject GetTarget()
     {
         if (enemy)
         { return enemy; }

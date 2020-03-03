@@ -91,10 +91,10 @@ public class EnemyHealth : MonoBehaviour
         bIsAlive = false;
         enemiesSlainScript.CounterIncrease();
         pointsManagerScript.IncreasePoints(pointsValue);
-        EnemyController enemyController = GetComponent<EnemyController>();
+        EnemyAIController enemyController = GetComponent<EnemyAIController>();
         if (enemyController)
         {
-            enemyController.DropWeapon();
+            //enemyController.DropWeapon();
         }
         else // flying enemy
         {
