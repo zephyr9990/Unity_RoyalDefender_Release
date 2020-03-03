@@ -11,7 +11,7 @@ public class NPCAttackRange : MonoBehaviour
         enemies = new ArrayList();
     }
 
-    public ArrayList getEnemiesInAttackRange()
+    public ArrayList GetEnemiesInAttackRange()
     {
         return enemies;
     }
@@ -27,8 +27,8 @@ public class NPCAttackRange : MonoBehaviour
                 GameObject enemy = enemies[index] as GameObject;
                 if (enemy)
                 {
-                    EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-                    if (enemyHealth.IsAlive())
+                    IHealth enemyHealth = enemy.GetComponent<IHealth>();
+                    if (enemyHealth.IsGreaterThanZero())
                     {
                         Vector3 distanceToEnemy = enemy.transform.position - transform.position;
                         if (distanceToClosestEnemy == Vector3.zero)

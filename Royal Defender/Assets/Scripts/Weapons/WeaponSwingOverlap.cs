@@ -8,9 +8,6 @@ public class WeaponSwingOverlap : MonoBehaviour
     public float force = 10f;
     private PlayerEquippedWeapon playerEquippedWeapon;
     private NPCEquippedWeapon npcEquippedWeapon;
-    private void Start()
-    {
-    }
 
     private void OnTriggerEnter(Collider other)
     {

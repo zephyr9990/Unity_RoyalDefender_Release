@@ -1057,7 +1057,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pointsManager
       value: 
-      objectReference: {fileID: 2105658368}
+      objectReference: {fileID: 0}
     - target: {fileID: 3710624583968989036, guid: c989701f54c9ef74c986d1029bbd4c1e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2619,7 +2619,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pointsManager
       value: 
-      objectReference: {fileID: 2105658368}
+      objectReference: {fileID: 0}
     - target: {fileID: 3710624583968989036, guid: c989701f54c9ef74c986d1029bbd4c1e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -10312,7 +10312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &515697287
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10948,11 +10948,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecc4271a52489446bbd2d3f42e5e7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startTime: 310
+  timeRemaining: 0
   timerText: {fileID: 0}
+  enemiesSlain: 0
   killIncrease: 15
   stoneIncrease: 60
   killsBeenUpdated: 1
   enemiesKilledCounter: 5
+  enemiesSlainScript: {fileID: 0}
+  playerHealth: {fileID: 0}
 --- !u!114 &550521613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11253,6 +11258,50 @@ Transform:
   m_Father: {fileID: 212665044}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &560777219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 560777220}
+  - component: {fileID: 560777221}
+  m_Layer: 0
+  m_Name: PointsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &560777220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560777219}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1411823910}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &560777221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560777219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225ebb95ea2c3e542a56d5049c4e8303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsText: {fileID: 2105658365}
 --- !u!1001 &570967303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12036,7 +12085,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 2.3509887e-38, z: 131076, w: 3.2451867e+32}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 2.4512512e+35}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -12343,7 +12392,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pointsManager
       value: 
-      objectReference: {fileID: 2105658368}
+      objectReference: {fileID: 0}
     - target: {fileID: 3710624583968989036, guid: c989701f54c9ef74c986d1029bbd4c1e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -16464,6 +16513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesSlain: 0
+  timeManagerScript: {fileID: 0}
   enemiesSlainText: {fileID: 988569226}
   enemiesSlainCounter: 5
 --- !u!4 &991931282 stripped
@@ -18874,6 +18924,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 67731a583f1a880438dc7715f0e365bf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Cube
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67731a583f1a880438dc7715f0e365bf, type: 3}
@@ -25222,6 +25277,7 @@ Transform:
   - {fileID: 1814797139}
   - {fileID: 1251800854}
   - {fileID: 221618335}
+  - {fileID: 560777220}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26062,7 +26118,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pointsManager
       value: 
-      objectReference: {fileID: 2105658368}
+      objectReference: {fileID: 0}
     - target: {fileID: 3710624583968989036, guid: c989701f54c9ef74c986d1029bbd4c1e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -28139,7 +28195,7 @@ GameObject:
   - component: {fileID: 1596354150}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Cube
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33366,7 +33422,6 @@ GameObject:
   - component: {fileID: 2105658366}
   - component: {fileID: 2105658365}
   - component: {fileID: 2105658367}
-  - component: {fileID: 2105658368}
   m_Layer: 5
   m_Name: PointsText
   m_TagString: PointText
@@ -33442,25 +33497,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2105658363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 2, y: -2}
+  m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
---- !u!114 &2105658368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105658363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 225ebb95ea2c3e542a56d5049c4e8303, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointsText: {fileID: 0}
 --- !u!1 &2108506216
 GameObject:
   m_ObjectHideFlags: 0
@@ -49831,7 +49873,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pointsManager
       value: 
-      objectReference: {fileID: 2105658368}
+      objectReference: {fileID: 0}
     - target: {fileID: 3710624583968989036, guid: c989701f54c9ef74c986d1029bbd4c1e,
         type: 3}
       propertyPath: m_AnchorMax.y

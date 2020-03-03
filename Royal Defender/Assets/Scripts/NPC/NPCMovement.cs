@@ -163,8 +163,8 @@ public class NPCMovement : MonoBehaviour
     {
         if (target)
         {
-            EnemyHealth targetHealth = target.GetComponent<EnemyHealth>();
-            if (targetHealth.IsAlive())
+            IHealth targetHealth = target.GetComponent<IHealth>();
+            if (targetHealth.IsGreaterThanZero())
             {
                 Vector3 toTarget = target.transform.position - transform.position;
                 toTarget.y = 0;

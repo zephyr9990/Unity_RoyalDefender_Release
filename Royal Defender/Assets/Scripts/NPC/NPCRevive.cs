@@ -9,7 +9,6 @@ public class NPCRevive : MonoBehaviour
     public int amountNeededToRevive = 500;
     public int amountAddedPerReviveCall = 100;
     public int amountSubtractedPerReviveCall = 100;
-    public PointsManager pointsManager;
 
     private NPCHealth npcHealth;
     private Animator animator;
@@ -31,11 +30,12 @@ public class NPCRevive : MonoBehaviour
 
     public void BeginReviving()
     {
-        if (PointsManager.points - amountSubtractedPerReviveCall < 0
+        int currentPoints = PointsManager.GetInstance().GetPoints();
+        if (currentPoints - amountSubtractedPerReviveCall < 0
             || animator.GetBool("IsRevived")) 
             return; // not enough points to activate revive tick or is already revived.
 
-        pointsManager.DecreasePoints(amountSubtractedPerReviveCall);
+        PointsManager.GetInstance().SubtractPoints(amountSubtractedPerReviveCall);
 
         currentReviveProgress += amountAddedPerReviveCall;
         npcUI.SetSliderValue(currentReviveProgress / amountNeededToRevive);

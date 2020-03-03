@@ -39,6 +39,7 @@ public class EnemyAIController : MonoBehaviour, IAIController
     private void Update()
     {
         timer += Time.deltaTime;
+        SetAnimatorValues();
 
         if (movementStopped)
             return; // do nothing;
@@ -57,7 +58,6 @@ public class EnemyAIController : MonoBehaviour, IAIController
             }
         }
 
-        SetAnimatorValues();
     }
 
     private GameObject FindClosestTarget()

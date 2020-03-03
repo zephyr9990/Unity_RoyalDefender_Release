@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-
     [SerializeField]
     GameObject DeathMenu;
 

@@ -1,36 +1,50 @@
-﻿//Senior Desgin Project Points Manager
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PointsManager : MonoBehaviour
 {
-    public static int points;
-  
     public Text pointsText;
+    private static int points;
+    private static PointsManager instance;
 
-    void Awake()
+    private void Awake()
     {
-        pointsText = GetComponent <Text> ();
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        instance = this;
         points = 0;
     }
 
-    public void IncreasePoints(int monsterPoints)
+    public static PointsManager GetInstance()
     {
-        points += monsterPoints;
-        UpdateTextField();
+        return instance;
     }
 
-    public void DecreasePoints(int amount)
+    public void AddPoints(int amount)
+    {
+        points += amount;
+        UpdatePointsUI();
+    }
+
+    public void SubtractPoints(int amount)
     {
         points -= amount;
-        UpdateTextField();
+        UpdatePointsUI();
     }
 
-    private void UpdateTextField()
+    public int GetPoints()
+    {
+        return points;
+    }
+
+    private void UpdatePointsUI()
     {
         pointsText.text = points.ToString();
     }
-
 }

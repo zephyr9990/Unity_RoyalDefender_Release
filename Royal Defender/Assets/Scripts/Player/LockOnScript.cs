@@ -19,11 +19,6 @@ public class LockOnScript : MonoBehaviour
         equippedWeapon = transform.parent.GetComponent<PlayerEquippedWeapon>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -82,9 +77,9 @@ public class LockOnScript : MonoBehaviour
             GameObject enemy = enemies[index] as GameObject;
             if (enemy)
             {
-                SetHealthBarEnabled(enemy, false);
-                EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-                if (enemyHealth.IsAlive())
+                SetHealthBarVisible(enemy, false);
+                IHealth enemyHealth = enemy.GetComponent<IHealth>();
+                if (enemyHealth.IsGreaterThanZero())
                 {
                     Vector3 ToEnemy = enemy.transform.position - transform.parent.position;
                     if (!closestEnemy)
@@ -103,6 +98,7 @@ public class LockOnScript : MonoBehaviour
                 }
                 else
                 {
+                    // Remove from list. Enemy is dead.
                     RemoveFromLockOnList(enemy);
                 }
             }
@@ -116,18 +112,22 @@ public class LockOnScript : MonoBehaviour
         // Make the player always face the target so that they do not have to aim
         if (target)
         {
-            EnemyHealth targetHealth = target.GetComponent<EnemyHealth>();
-            if (targetHealth.IsAlive())
+            IHealth targetHealth = target.GetComponent<IHealth>();
+            if (targetHealth.IsGreaterThanZero())
             {
-                Vector3 toTarget = target.transform.position - transform.parent.position;
-                toTarget.y = 0;
-                Vector3 toTargetRotation = Vector3.RotateTowards(transform.parent.forward, toTarget, Time.deltaTime * lerpSmoothing, 0.0f);
-                transform.parent.rotation = Quaternion.LookRotation(toTargetRotation);
-
+                TurnToFace(target);
                 currentlyLockedOnTarget = target;
-                SetHealthBarEnabled(currentlyLockedOnTarget, true);
+                SetHealthBarVisible(currentlyLockedOnTarget, true);
             }
         }
+    }
+
+    private void TurnToFace(GameObject target)
+    {
+        Vector3 toTarget = target.transform.position - transform.parent.position;
+        toTarget.y = 0;
+        Vector3 toTargetRotation = Vector3.RotateTowards(transform.parent.forward, toTarget, Time.deltaTime * lerpSmoothing, 0.0f);
+        transform.parent.rotation = Quaternion.LookRotation(toTargetRotation);
     }
 
     public GameObject GetCurrentTarget()
@@ -148,16 +148,16 @@ public class LockOnScript : MonoBehaviour
 
         if (currentlyLockedOnTarget)
         {
-            SetHealthBarEnabled(currentlyLockedOnTarget, false);
+            SetHealthBarVisible(currentlyLockedOnTarget, false);
         }
         currentlyLockedOnTarget = null;
 
     }
 
-    private void SetHealthBarEnabled(GameObject target, bool value)
+    private void SetHealthBarVisible(GameObject target, bool isVisible)
     {
-        EnemyHealth enemyHealth = target.GetComponent<EnemyHealth>();
-        enemyHealth.isLocked = value;
+        ICanvas targetCanvas = target.GetComponent<ICanvas>();
+        targetCanvas.ShowCanvas(isVisible);
     }
 
     public void RemoveFromLockOnList(GameObject enemy)
