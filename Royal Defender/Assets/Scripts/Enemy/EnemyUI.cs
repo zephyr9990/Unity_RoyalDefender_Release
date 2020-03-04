@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,8 @@ using UnityEngine.UI;
 public class EnemyUI : MonoBehaviour, ICanvas
 {
     public Canvas enemyCanvas;
-    public Image HealthFillImage;
+    public Slider healthSlider;
+    public Text healthText;
 
     private bool lockedOnto;
 
@@ -21,9 +23,9 @@ public class EnemyUI : MonoBehaviour, ICanvas
         enemyCanvas.transform.rotation = Camera.main.transform.rotation;
     }
 
-    public void SetHealthFillAmount(float hpPercent)
+    private void SetHealthFillAmount(float hpPercent)
     {
-        HealthFillImage.fillAmount = hpPercent;
+        healthSlider.value = hpPercent;
     }
 
     public void IsLockedOn(bool lockedOn)
@@ -59,6 +61,17 @@ public class EnemyUI : MonoBehaviour, ICanvas
         }
     }
 
+    public void SetHealthUIValues(int currentHealth, int maxHealth, float percentHealth)
+    {
+        SetHealthText(currentHealth, maxHealth);
+        SetHealthFillAmount(percentHealth);
+    }
+
+    private void SetHealthText(int currentHealth, int maxHealth)
+    {
+        healthText.text = currentHealth + "/" + maxHealth;
+    }
+
     private void EnableCanvas(bool isActive)
     {
         enemyCanvas.gameObject.SetActive(isActive);
@@ -71,6 +84,6 @@ public class EnemyUI : MonoBehaviour, ICanvas
 
     private bool IsDead()
     {
-        return HealthFillImage.fillAmount <= 0;
+        return healthSlider.value <= 0;
     }
 }

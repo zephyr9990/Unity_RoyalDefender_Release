@@ -22,6 +22,12 @@ public class EnemyHealth : MonoBehaviour, IHealth
         aiController = GetComponent<IAIController>();
     }
 
+    private void Start()
+    {
+        float percentHealth = GetHealthPercentage();
+        enemyUI.SetHealthUIValues(currentHealth, startingHealth, percentHealth);
+    }
+
     public void TakeDamage(int amount)
     {
         if (currentHealth <= 0)
@@ -37,7 +43,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
         }
         float percentHealth = GetHealthPercentage();
         enemyUI.ShowCanvas(true, timeCanvasDisplayedFromDamage);
-        enemyUI.SetHealthFillAmount(percentHealth);
+        enemyUI.SetHealthUIValues(currentHealth, startingHealth, percentHealth);
     }
 
     public void RestoreHealth(int amount)
