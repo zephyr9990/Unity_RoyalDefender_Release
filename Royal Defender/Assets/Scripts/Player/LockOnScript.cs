@@ -157,7 +157,7 @@ public class LockOnScript : MonoBehaviour
     private void SetHealthBarVisible(GameObject target, bool isVisible)
     {
         ICanvas targetCanvas = target.GetComponent<ICanvas>();
-        targetCanvas.ShowCanvas(isVisible);
+        targetCanvas.IsLockedOn(isVisible);
     }
 
     public void RemoveFromLockOnList(GameObject enemy)

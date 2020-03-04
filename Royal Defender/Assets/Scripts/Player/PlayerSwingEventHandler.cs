@@ -34,11 +34,13 @@ public class PlayerSwingEventHandler : MonoBehaviour
 
 
         EnableWeapon(false);
+        WeaponSwingOverlap weaponSwingOverlap = GetMeleeWeaponObject().GetComponent<WeaponSwingOverlap>();
+        weaponSwingOverlap.ClearList();
     }
 
     private void EnableWeapon(bool value)
     {
-        GameObject weapon = equippedWeapon.GetEquippedMeleeWeaponObject();
+        GameObject weapon = GetMeleeWeaponObject();
         SetColliderEnabled(weapon, value);
 
         if (value == true)
@@ -50,5 +52,10 @@ public class PlayerSwingEventHandler : MonoBehaviour
     private void SetColliderEnabled(GameObject weapon, bool value)
     {
         weapon.GetComponent<BoxCollider>().enabled = value;
+    }
+
+    private GameObject GetMeleeWeaponObject()
+    {
+        return equippedWeapon.GetEquippedMeleeWeaponObject();
     }
 }

@@ -8,12 +8,19 @@ public class WeaponSwingOverlap : MonoBehaviour
     public float force = 10f;
     private PlayerEquippedWeapon playerEquippedWeapon;
     private NPCEquippedWeapon npcEquippedWeapon;
+    private ArrayList enemies;
+
+    private void Awake()
+    {
+        enemies = new ArrayList();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy")
+            && !enemies.Contains(other.gameObject))
         {
-            
+            enemies.Add(other.gameObject);
             if (owner.CompareTag("Player"))
             {
                 PlayerAttackEnemy(other, playerEquippedWeapon);
@@ -23,6 +30,11 @@ public class WeaponSwingOverlap : MonoBehaviour
                 NPCAttackEnemy(other, npcEquippedWeapon);
             }
         }
+    }
+
+    public void ClearList()
+    {
+        enemies.Clear();
     }
 
     private void PlayerAttackEnemy(Collider other, PlayerEquippedWeapon equippedWeapon)

@@ -906,13 +906,13 @@ GameObject:
   - component: {fileID: 409254}
   - component: {fileID: 9562442}
   - component: {fileID: -5390827896136050523}
-  - component: {fileID: -4849366257037036593}
   - component: {fileID: -807009620798451792}
   - component: {fileID: -6934238602232251377}
   - component: {fileID: -337799343646977215}
   - component: {fileID: 4977105258009209702}
   - component: {fileID: -6705375423494318042}
   - component: {fileID: -8135960687105529145}
+  - component: {fileID: -4326240979040978462}
   m_Layer: 0
   m_Name: RedBoarPBR 1
   m_TagString: Enemy
@@ -967,8 +967,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 4
+  m_Speed: 5
+  m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -979,19 +979,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &-4849366257037036593
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177538}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 3, z: 3.960179}
-  m_Center: {x: 0, y: 1.5, z: 0.8300897}
 --- !u!82 &-807009620798451792
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1121,6 +1108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  pointsAwardedOnDeath: 20
+  timeCanvasDisplayedFromDamage: 3
 --- !u!114 &4977105258009209702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,6 +1152,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a42211991d74d428043de0c3defa6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &-4326240979040978462
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.41
+  m_Height: 4.3
+  m_Direction: 2
+  m_Center: {x: 0, y: 1.5, z: 1}
 --- !u!1 &178406
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,11 +33,13 @@ public class NPCSwingEventHandler : MonoBehaviour
             return; // if there's no weapon or if player swaps out weapon mid-swing
 
         EnableWeapon(false);
+        WeaponSwingOverlap weaponSwingOverlap = GetMeleeWeaponObject().GetComponent<WeaponSwingOverlap>();
+        weaponSwingOverlap.ClearList();
     }
 
     private void EnableWeapon(bool value)
     {
-        GameObject weapon = npcEquippedWeapon.GetEquippedMeleeWeaponObject();
+        GameObject weapon = GetMeleeWeaponObject();
         SetColliderEnabled(weapon, value);
 
         if (value == true)
@@ -49,5 +51,10 @@ public class NPCSwingEventHandler : MonoBehaviour
     private void SetColliderEnabled(GameObject weapon, bool value)
     {
         weapon.GetComponent<BoxCollider>().enabled = value;
+    }
+
+    private GameObject GetMeleeWeaponObject()
+    {
+        return npcEquippedWeapon.GetEquippedMeleeWeaponObject();
     }
 }

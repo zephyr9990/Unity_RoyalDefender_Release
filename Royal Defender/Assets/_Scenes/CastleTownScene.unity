@@ -10908,10 +10908,9 @@ GameObject:
   - component: {fileID: 550521611}
   - component: {fileID: 550521615}
   - component: {fileID: 550521614}
-  - component: {fileID: 550521613}
   - component: {fileID: 550521612}
   m_Layer: 5
-  m_Name: TimeText
+  m_Name: WaveText
   m_TagString: TimerText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10945,33 +10944,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 550521610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ecc4271a52489446bbd2d3f42e5e7f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startTime: 310
-  timeRemaining: 0
-  timerText: {fileID: 0}
-  enemiesSlain: 0
-  killIncrease: 15
-  stoneIncrease: 60
-  killsBeenUpdated: 1
-  enemiesKilledCounter: 5
-  enemiesSlainScript: {fileID: 0}
-  playerHealth: {fileID: 0}
---- !u!114 &550521613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 550521610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 2, y: -2}
+  m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!114 &550521614
 MonoBehaviour:
@@ -11004,7 +10981,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: Wave 1
 --- !u!222 &550521615
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15045,7 +15022,7 @@ GameObject:
   - component: {fileID: 851857324}
   - component: {fileID: 851857323}
   m_Layer: 5
-  m_Name: TimePanel
+  m_Name: WavePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16415,10 +16392,8 @@ GameObject:
   - component: {fileID: 988569225}
   - component: {fileID: 988569227}
   - component: {fileID: 988569226}
-  - component: {fileID: 988569228}
-  - component: {fileID: 988569229}
   m_Layer: 5
-  m_Name: EnemiesSlainText
+  m_Name: EnemiesRemainingText
   m_TagString: SlainText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16474,9 +16449,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Enemies Slain
+  m_Text: 'Enemies
 
-    23'
+    23/50'
 --- !u!222 &988569227
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16485,37 +16460,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988569224}
   m_CullTransparentMesh: 0
---- !u!114 &988569228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988569224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 2, y: -2}
-  m_UseGraphicAlpha: 1
---- !u!114 &988569229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988569224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d133e86c116f2449af9f0b70df9aadd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemiesSlain: 0
-  timeManagerScript: {fileID: 0}
-  enemiesSlainText: {fileID: 988569226}
-  enemiesSlainCounter: 5
 --- !u!4 &991931282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4782824878747570, guid: 2c419a4d68bda8948a41d26abd8021e9,
@@ -27560,7 +27504,7 @@ GameObject:
   - component: {fileID: 1541292706}
   - component: {fileID: 1541292705}
   m_Layer: 5
-  m_Name: EnemiesSlainPanel
+  m_Name: EnemiesRemainingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49852,7 +49796,8 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9796734
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7894432469839672723, guid: ddcf054b12f1f4c42b743dad19d1d122, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ddcf054b12f1f4c42b743dad19d1d122, type: 3}
 --- !u!1001 &8618048716716902649
 PrefabInstance:

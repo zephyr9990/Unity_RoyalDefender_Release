@@ -24,6 +24,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
     public void TakeDamage(int amount)
     {
+        if (currentHealth <= 0)
+        {
+            return; // Already dead. Do nothing.
+        }
+
         currentHealth -= amount;
         if (currentHealth <= 0)
         {

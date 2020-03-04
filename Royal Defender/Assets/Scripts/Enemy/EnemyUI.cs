@@ -8,6 +8,13 @@ public class EnemyUI : MonoBehaviour, ICanvas
     public Canvas enemyCanvas;
     public Image HealthFillImage;
 
+    private bool lockedOnto;
+
+    private void Awake()
+    {
+        lockedOnto = false;
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -17,6 +24,12 @@ public class EnemyUI : MonoBehaviour, ICanvas
     public void SetHealthFillAmount(float hpPercent)
     {
         HealthFillImage.fillAmount = hpPercent;
+    }
+
+    public void IsLockedOn(bool lockedOn)
+    {
+        lockedOnto = lockedOn;
+        ShowCanvas(lockedOn);
     }
 
     public void ShowCanvas(bool isShowing)
@@ -37,7 +50,13 @@ public class EnemyUI : MonoBehaviour, ICanvas
         }
 
         EnableCanvas(isShowing);
-        Invoke("DisableCanvas", time);
+
+
+        // Only disable canvas if not locked onto
+        if (!lockedOnto)
+        {
+            Invoke("DisableCanvas", time);
+        }
     }
 
     private void EnableCanvas(bool isActive)

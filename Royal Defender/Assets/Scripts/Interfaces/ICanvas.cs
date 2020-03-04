@@ -5,4 +5,6 @@ using UnityEngine;
 public interface ICanvas
 {
     void ShowCanvas(bool isShowing);
+
+    void IsLockedOn(bool lockedOn);
 }
