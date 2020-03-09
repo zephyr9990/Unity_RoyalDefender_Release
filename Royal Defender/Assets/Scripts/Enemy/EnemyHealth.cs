@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     private int currentHealth;
     private Animator animator;
     private EnemyUI enemyUI;
+    private Loot loot;
     private IAIController aiController;
 
     private void Awake()
@@ -19,6 +20,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
         currentHealth = startingHealth;
         animator = GetComponent<Animator>();
         enemyUI = GetComponent<EnemyUI>();
+        loot = GetComponent<Loot>();
         aiController = GetComponent<IAIController>();
     }
 
@@ -70,6 +72,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
         PointsManager.GetInstance().AddPoints(pointsAwardedOnDeath);
         animator.SetTrigger("Die");
         aiController.StopMovement();
+        loot.DropItem();
 
         Destroy(gameObject, 3f);
     }

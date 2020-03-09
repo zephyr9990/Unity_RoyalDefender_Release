@@ -1008,11 +1008,12 @@ GameObject:
   - component: {fileID: -3081331967749440014}
   - component: {fileID: 6237895967775731149}
   - component: {fileID: 3396689129858812037}
+  - component: {fileID: 6498277951971689705}
+  - component: {fileID: -5589922212894991084}
   - component: {fileID: 3369356641260214759}
   - component: {fileID: 3829607912903475015}
-  - component: {fileID: 6498277951971689705}
   - component: {fileID: 262330305893385589}
-  - component: {fileID: -5589922212894991084}
+  - component: {fileID: -2151848813403983953}
   m_Layer: 0
   m_Name: GoldBoarPBR 1
   m_TagString: Enemy
@@ -1195,36 +1196,6 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: ac6034ade498bb94b87620cdf6eac48b, type: 3}
   - {fileID: 8300000, guid: f4fa25251f22736488c04ac9f608783d, type: 3}
---- !u!114 &3369356641260214759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39309198bcd34cf4397c5dc75b90baee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 110
-  pointsAwardedOnDeath: 20
-  timeCanvasDisplayedFromDamage: 3
---- !u!114 &3829607912903475015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ed276d9e15c096429a7885d2ddaad60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyCanvas: {fileID: 8945635606955503718}
-  healthSlider: {fileID: 4560260280184112710}
-  healthText: {fileID: 9155388125921045863}
 --- !u!54 &6498277951971689705
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1241,18 +1212,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &262330305893385589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a42211991d74d428043de0c3defa6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &-5589922212894991084
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1267,6 +1226,66 @@ CapsuleCollider:
   m_Height: 4.3
   m_Direction: 2
   m_Center: {x: 0, y: 1.5, z: 1}
+--- !u!114 &3369356641260214759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39309198bcd34cf4397c5dc75b90baee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 110
+  pointsAwardedOnDeath: 500
+  timeCanvasDisplayedFromDamage: 3
+--- !u!114 &3829607912903475015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed276d9e15c096429a7885d2ddaad60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyCanvas: {fileID: 8945635606955503718}
+  healthSlider: {fileID: 4560260280184112710}
+  healthText: {fileID: 9155388125921045863}
+--- !u!114 &262330305893385589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a42211991d74d428043de0c3defa6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2151848813403983953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8a5266a9e8b6f4b9486e5268a78019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 6015537844263738433, guid: 0668dbcd8d35e924580fd0a5c0535eb6, type: 3}
+  - {fileID: 174004, guid: dd196b229764e914f8a6e4142a4cbc7b, type: 3}
+  - {fileID: 100884, guid: 76f53dd9bdccd9e428990a3b31f20524, type: 3}
+  - {fileID: 6198952787003885509, guid: a7586ae43efcaf344b0fe71498687a1d, type: 3}
+  - {fileID: 6015537844263738433, guid: 0668dbcd8d35e924580fd0a5c0535eb6, type: 3}
 --- !u!1 &167614
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,11 +43,12 @@ GameObject:
   - component: {fileID: 2326245506796224671}
   - component: {fileID: -7278583898643281170}
   - component: {fileID: 7880169861720015042}
+  - component: {fileID: 8925115906082745981}
+  - component: {fileID: 7299141624074631028}
   - component: {fileID: -6019915018080018775}
   - component: {fileID: -1924941236348874826}
-  - component: {fileID: 8925115906082745981}
   - component: {fileID: -8712544370969113458}
-  - component: {fileID: 7299141624074631028}
+  - component: {fileID: -3580194388903105856}
   m_Layer: 0
   m_Name: BlueBoarPBR 1
   m_TagString: Enemy
@@ -230,36 +231,6 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: ac6034ade498bb94b87620cdf6eac48b, type: 3}
   - {fileID: 8300000, guid: f4fa25251f22736488c04ac9f608783d, type: 3}
---- !u!114 &-6019915018080018775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39309198bcd34cf4397c5dc75b90baee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 90
-  pointsAwardedOnDeath: 20
-  timeCanvasDisplayedFromDamage: 3
---- !u!114 &-1924941236348874826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ed276d9e15c096429a7885d2ddaad60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyCanvas: {fileID: 4873455141703924985}
-  healthSlider: {fileID: 5938364501734520980}
-  healthText: {fileID: 6057428085810097356}
 --- !u!54 &8925115906082745981
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -276,18 +247,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-8712544370969113458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a42211991d74d428043de0c3defa6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &7299141624074631028
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -302,6 +261,66 @@ CapsuleCollider:
   m_Height: 4.3
   m_Direction: 2
   m_Center: {x: 0, y: 1.5, z: 1}
+--- !u!114 &-6019915018080018775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39309198bcd34cf4397c5dc75b90baee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 90
+  pointsAwardedOnDeath: 500
+  timeCanvasDisplayedFromDamage: 3
+--- !u!114 &-1924941236348874826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed276d9e15c096429a7885d2ddaad60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyCanvas: {fileID: 4873455141703924985}
+  healthSlider: {fileID: 5938364501734520980}
+  healthText: {fileID: 6057428085810097356}
+--- !u!114 &-8712544370969113458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a42211991d74d428043de0c3defa6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3580194388903105856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8a5266a9e8b6f4b9486e5268a78019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 6015537844263738433, guid: 0668dbcd8d35e924580fd0a5c0535eb6, type: 3}
+  - {fileID: 174004, guid: dd196b229764e914f8a6e4142a4cbc7b, type: 3}
+  - {fileID: 100884, guid: 76f53dd9bdccd9e428990a3b31f20524, type: 3}
+  - {fileID: 6198952787003885509, guid: a7586ae43efcaf344b0fe71498687a1d, type: 3}
+  - {fileID: 6015537844263738433, guid: 0668dbcd8d35e924580fd0a5c0535eb6, type: 3}
 --- !u!1 &113434
 GameObject:
   m_ObjectHideFlags: 0

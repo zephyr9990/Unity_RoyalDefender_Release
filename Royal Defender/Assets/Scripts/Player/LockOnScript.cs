@@ -77,7 +77,7 @@ public class LockOnScript : MonoBehaviour
             GameObject enemy = enemies[index] as GameObject;
             if (enemy)
             {
-                SetHealthBarVisible(enemy, false);
+                //SetHealthBarVisible(enemy, false);
                 IHealth enemyHealth = enemy.GetComponent<IHealth>();
                 if (enemyHealth.IsGreaterThanZero())
                 {
@@ -109,6 +109,11 @@ public class LockOnScript : MonoBehaviour
 
     private void LockOnto(GameObject target)
     {
+        if (currentlyLockedOnTarget && currentlyLockedOnTarget != target)
+        {
+            SetHealthBarVisible(currentlyLockedOnTarget, false);
+        }
+
         // Make the player always face the target so that they do not have to aim
         if (target)
         {
