@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System;
 
-public class EnemyHealth : MonoBehaviour, IHealth
+public class EnemyHealth : MonoBehaviour, IHealthWithWaveManager
 {
     public int startingHealth = 100;
     public int pointsAwardedOnDeath = 20;
@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     private Animator animator;
     private EnemyUI enemyUI;
     private Loot loot;
+    private WaveManager waveManager;
     private IAIController aiController;
 
     private void Awake()
@@ -57,6 +58,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
         }
     }
 
+    public void SetWaveManager(WaveManager waveManager)
+    {
+        this.waveManager = waveManager;
+    }
+
     private float GetHealthPercentage()
     {
         return (float)currentHealth / startingHealth;
@@ -73,6 +79,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
         animator.SetTrigger("Die");
         aiController.StopMovement();
         loot.DropItem();
+        waveManager.DecreaseEnemyCount();
 
         Destroy(gameObject, 3f);
     }
