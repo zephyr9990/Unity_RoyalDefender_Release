@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 110
-  pointsAwardedOnDeath: 500
+  pointsAwardedOnDeath: 50
   timeCanvasDisplayedFromDamage: 3
 --- !u!114 &3829607912903475015
 MonoBehaviour:
@@ -1748,11 +1748,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 008af7aa6d0e041a5beb797b1bfa7820, type: 3}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: fe938e43dc708e040bbfe293fbcc6201, type: 3}
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0

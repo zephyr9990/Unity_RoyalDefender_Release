@@ -29,7 +29,7 @@ public class SpecialWeapon : MonoBehaviour, IRangedWeapon
     private ArrayList enemies;
     private ArrayList originalEnemyTransforms;
     private GameObject enemyCutsceneLocation;
-    private PauseManager pauseManager;
+    private CutscenePauseManager pauseManager;
 
     private void Awake()
     {
@@ -40,7 +40,7 @@ public class SpecialWeapon : MonoBehaviour, IRangedWeapon
     private void Start()
     {
         cutsceneObject = GameObject.FindGameObjectWithTag("RailGunCutscene");
-        pauseManager = GameObject.FindGameObjectWithTag("PauseManager").GetComponent<PauseManager>();
+        pauseManager = GameObject.FindGameObjectWithTag("PauseManager").GetComponent<CutscenePauseManager>();
         enemyCutsceneLocation = cutsceneObject.transform.GetChild(0).GetChild(0).gameObject;
         weaponCutscene = cutsceneObject.GetComponent<PlayableDirector>();
         playerLockOn = transform.root.GetChild(0).GetComponent<LockOnScript>();

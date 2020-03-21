@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyReturn : MonoBehaviour
 {
     public PlayerEquippedWeapon playerEquippedWeapon;
-    public PauseManager pauseManager;
+    public CutscenePauseManager pauseManager;
     private ArrayList enemies;
     private ArrayList originalTransforms;
 

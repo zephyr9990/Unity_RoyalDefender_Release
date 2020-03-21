@@ -66,12 +66,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 008af7aa6d0e041a5beb797b1bfa7820, type: 3}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: fe938e43dc708e040bbfe293fbcc6201, type: 3}
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 100
+    m_MaxSize: 112
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -1221,8 +1221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5a2e51430eb8647b5750ca2daf8bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0.15
-  timeBetweenSwings: 2
   range: 100
   numberOfShotsPerBurst: 9
   timeBetweenBursts: 3
@@ -1254,7 +1252,6 @@ MonoBehaviour:
   amountNeededToRevive: 500
   amountAddedPerReviveCall: 100
   amountSubtractedPerReviveCall: 100
-  pointsManager: {fileID: 0}
 --- !u!114 &5320076512543304247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1963,6 +1960,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -7090,8 +7088,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8618048716151655123}
   m_Enabled: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0, g: 1, b: 0.09019608, a: 1}
   m_Intensity: 2
   m_Range: 5
@@ -7157,6 +7156,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -11972,6 +11972,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -12028,8 +12029,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8618048716970381416}
   m_Enabled: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.52156866, g: 1, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 5
@@ -12145,11 +12147,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 008af7aa6d0e041a5beb797b1bfa7820, type: 3}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: fe938e43dc708e040bbfe293fbcc6201, type: 3}
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
