@@ -32,7 +32,7 @@ public class LockOnScript : MonoBehaviour
 
         // Toggle lock on when player presses the lock-on button
         if (Input.GetButtonDown("LockOnToggle") 
-            && !animator.GetBool("IsSprinting")
+            && animator.GetBool("IsSprinting") == false
             && PlayerHasRangedWeapon())
         {
             lockOnToggled = !lockOnToggled;

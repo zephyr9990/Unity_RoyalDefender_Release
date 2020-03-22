@@ -20,9 +20,9 @@ public class EnemyInfo
 
     public void ResetWaveAmount(int waveNumber)
     {
-        if (waveNumber > roundDivisor)
+        if (waveNumber / roundDivisor != 0)
         {
-            initialWaveAmount *= 1 + (waveNumber / roundDivisor);
+            initialWaveAmount += initialWaveAmount / 2;
             currentAmount = initialWaveAmount;
         }
         else

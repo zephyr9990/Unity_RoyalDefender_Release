@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class WaveManager : MonoBehaviour
 {
     public int spawnTime;
+    public int numOfWavesBeforeSpawnRateIncreased = 5;
     public Text waveText;
     public Text enemiesRemainingText;
     public EnemyInfo[] enemyRound;
@@ -13,6 +14,7 @@ public class WaveManager : MonoBehaviour
 
     private static WaveManager instance;
     private int currentWave;
+    private int numOfEnemiesToSpawn;
     private int enemiesInWave;
     private int currentEnemies;
     private ArrayList enemiesToSpawn;
@@ -27,6 +29,7 @@ public class WaveManager : MonoBehaviour
 
         instance = this;
         currentWave = 1;
+        numOfEnemiesToSpawn = 1;
         enemiesInWave = 0;
         currentEnemies = 0;
     }
@@ -47,7 +50,7 @@ public class WaveManager : MonoBehaviour
         {
             enemyRound[i].ResetWaveAmount(currentWave);
             currentWaveEnemies.Add(enemyRound[i]);
-            enemiesInWave += enemyRound[i].initialWaveAmount;
+            enemiesInWave += enemyRound[i].GetAmount();
         }
 
         currentEnemies = enemiesInWave;
@@ -57,26 +60,39 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        if (enemiesToSpawn.Count <=0)
+        Debug.Log("Spawning " + numOfEnemiesToSpawn + " at a time.");
+        for (int i = 0; i < numOfEnemiesToSpawn; i++)
         {
-            return; // Don't spawn if there's nothing to spawn.
-        }
-
-        int enemyToSpawn = Random.Range(0, enemiesToSpawn.Count);
-        if (enemyToSpawn < enemiesToSpawn.Count)
-        {
-            EnemyInfo enemyRoundInfo = (EnemyInfo) enemiesToSpawn[enemyToSpawn];
- 
-            int spawnIndex = Random.Range(0, spawnPoints.Length);
-            if (spawnIndex < spawnPoints.Length)
+            if (enemiesToSpawn.Count <= 0)
             {
-                GameObject spawnedEnemy = Instantiate(enemyRoundInfo.enemy,
-                    spawnPoints[spawnIndex].position,
-                    spawnPoints[spawnIndex].rotation
-                    );
-                spawnedEnemy.GetComponent<IHealthWithWaveManager>().SetWaveManager(this);
-                DecreaseCount(enemyRoundInfo);
+                return; // Don't spawn if there's nothing to spawn.
             }
+
+            int enemyToSpawn = Random.Range(0, enemiesToSpawn.Count);
+            if (enemyToSpawn < enemiesToSpawn.Count)
+            {
+                EnemyInfo enemyRoundInfo = (EnemyInfo)enemiesToSpawn[enemyToSpawn];
+
+                int spawnIndex = Random.Range(0, spawnPoints.Length);
+                if (spawnIndex < spawnPoints.Length)
+                {
+                    GameObject spawnedEnemy = Instantiate(enemyRoundInfo.enemy,
+                        spawnPoints[spawnIndex].position,
+                        spawnPoints[spawnIndex].rotation
+                        );
+                    spawnedEnemy.GetComponent<IHealthWithWaveManager>().SetWaveManager(this);
+                    DecreaseCount(enemyRoundInfo);
+                }
+            }
+        }
+    }
+
+    private void AdjustNumOfEnemiesToSpawn()
+    {
+        if (currentWave == numOfWavesBeforeSpawnRateIncreased)
+        {
+            numOfWavesBeforeSpawnRateIncreased += numOfWavesBeforeSpawnRateIncreased;
+            numOfEnemiesToSpawn++;
         }
     }
 
@@ -94,6 +110,7 @@ public class WaveManager : MonoBehaviour
         currentWave++;
         enemiesInWave = 0;
         enemiesToSpawn = GetEnemiesSpecificToRound();
+        AdjustNumOfEnemiesToSpawn();
         UpdateWaveInfoUIText();
     }
 
